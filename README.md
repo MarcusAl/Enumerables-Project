@@ -24,7 +24,7 @@
 
 __Clone the repo to your local machine using the terminal__:
 ```
-$ git clone https://github.com/juxsalley/bubble_sort
+$ git clone https://github.com/CacheMeGifYouCan/Enumerables-Project
 ```
 
 1. Navigate into the project directory `cd enumerables`
