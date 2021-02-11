@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Enumerable
   def my_each
     return to_enum(:self) unless block_given?
@@ -89,7 +87,6 @@ module Enumerable
     initial
   end
 end
-
 
 def multiply_els(arr)
   arr.my_inject { |v, i| v * i }
