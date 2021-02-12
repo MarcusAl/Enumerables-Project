@@ -18,7 +18,7 @@ In this project, we have implemented our version of Ruby’s enumerable methods.
 
 <img align="right" alt="" height="300px" src="./screenshot.png" />
 
-## Built With
+## Built With Ruby
 
 ![Ruby](http://img.shields.io/badge/-Ruby-3776AB?style=flat-square&logo=ruby&logoColor=red)
 
