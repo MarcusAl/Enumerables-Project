@@ -1,4 +1,4 @@
-module Enumerables
+module Enumerable
   def my_each(block = nil)
     index = 0
     if block_given?
