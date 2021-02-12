@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="641cb187-b759-4896-918b-8b35298bdecd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enumerables.rb" beforeDir="false" afterPath="$PROJECT_DIR$/enumerables.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
       <updated>1613055712607</updated>
       <workItem from="1613055721015" duration="2529000" />
       <workItem from="1613120441904" duration="4055000" />
-      <workItem from="1613126320896" duration="972000" />
+      <workItem from="1613126320896" duration="1063000" />
     </task>
     <servers />
   </component>
