@@ -16,6 +16,7 @@ In this project, we have implemented our version of Ruby’s enumerable methods.
 - my_inject
 - multiply_els
 
+<img align="right" alt="GIF" height="160px" src="./screenshot" />
 
 ## Built With
 
