@@ -1,6 +1,5 @@
 module Enumerables
-
-  def my_each(&block)
+  def my_each(block = nil)
     index = 0
     if block_given?
       size.times do
@@ -32,7 +31,7 @@ module Enumerables
     end
   end
 
-  def my_select(&block)
+  def my_select(block = nil)
     index = 0
     if block_given?
       size.times do
@@ -48,7 +47,7 @@ module Enumerables
     end
   end
 
-  def my_all?(&match)
+  def my_all?(match = nil)
     index = 0
     statement = true
     if block_given?
@@ -68,7 +67,7 @@ module Enumerables
     statement
   end
 
-  def my_none?(&match)
+  def my_none?(match = nil)
     index = 0
     statement = false
     statement = true if size.zero?
@@ -88,7 +87,7 @@ module Enumerables
       end
     else
       size.times do
-        return true if self[index] == true or self[index].nil?
+        return true if (self[index] == true) || self[index].nil?
 
         index += 1
       end
@@ -96,7 +95,7 @@ module Enumerables
     statement
   end
 
-  def my_any?(&match)
+  def my_any?(match = nil)
     index = 0
     statement = false
     if block_given?
@@ -115,13 +114,13 @@ module Enumerables
       end
     else
       size.times do
-        return true if self[index] != false or !self[index].nil?
+        return true if (self[index] != false) || !self[index].nil?
       end
     end
     statement
   end
 
-  def my_count(&match)
+  def my_count(match = nil)
     index = 0
     if block_given?
       c = 0
@@ -145,15 +144,15 @@ module Enumerables
     end
   end
 
-  def my_map(&block)
+  def my_map(block = nil)
     index = 0
     new_array = []
-    my_array = []
     my_array = if respond_to?(:to_ary)
                  self
                else
                  to_a
                end
+
     if !block.nil?
       my_array.size.times do
         new_array.push(block.call(my_array[index]))
@@ -168,7 +167,7 @@ module Enumerables
     new_array
   end
 
-  def my_inject(&block)
+  def my_inject(block = nil)
     my_array = []
     if !block.nil?
       my_array.my_inject { |sum, x| sum + x }
@@ -182,6 +181,6 @@ module Enumerables
   end
 end
 
-def multiply_els(array)
-  array.my_inject { |sum, n| sum * n }
+def multiply_els(arr)
+  arr.my_inject { |sum, n| sum * n }
 end
