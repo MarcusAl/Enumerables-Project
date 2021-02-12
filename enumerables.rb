@@ -1,6 +1,6 @@
 module Enumerables
 
-  def my_each(&block )
+  def my_each(&block)
     index = 0
     if block_given?
       size.times do
@@ -16,7 +16,7 @@ module Enumerables
     end
   end
 
-  def my_each_with_index(&block )
+  def my_each_with_index(&block)
     index = 0
     if block_given?
       size.times do
@@ -32,7 +32,7 @@ module Enumerables
     end
   end
 
-  def my_select(&block )
+  def my_select(&block)
     index = 0
     if block_given?
       size.times do
@@ -48,7 +48,7 @@ module Enumerables
     end
   end
 
-  def my_all?(&match )
+  def my_all?(&match)
     index = 0
     statement = true
     if block_given?
@@ -68,7 +68,7 @@ module Enumerables
     statement
   end
 
-  def my_none?(&match )
+  def my_none?(&match)
     index = 0
     statement = false
     statement = true if size.zero?
@@ -96,7 +96,7 @@ module Enumerables
     statement
   end
 
-  def my_any?(&match )
+  def my_any?(&match)
     index = 0
     statement = false
     if block_given?
@@ -121,7 +121,7 @@ module Enumerables
     statement
   end
 
-  def my_count(&match )
+  def my_count(&match)
     index = 0
     if block_given?
       c = 0
@@ -145,7 +145,7 @@ module Enumerables
     end
   end
 
-  def my_map(&block )
+  def my_map(&block)
     index = 0
     new_array = []
     my_array = []
@@ -168,7 +168,7 @@ module Enumerables
     new_array
   end
 
-  def my_inject(&block )
+  def my_inject(&block)
     my_array = []
     if !block.nil?
       my_array.my_inject { |sum, x| sum + x }
