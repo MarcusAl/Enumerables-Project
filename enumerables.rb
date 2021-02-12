@@ -1,41 +1,45 @@
 module Enumerable
-  def my_each
+  def my_each(block = nil)
     return to_enum(:self) unless block_given?
 
     i = 0
     while i < size
-      yield (self[i])
-      i += 1
+     !block.nil? ? block.call(self[i]) : yield(self[i])
+     i += 1
     end
     self
   end
 
-  def my_each_with_index
+  def my_each_with_index(block = nil)
     return to_enum(:my_each_with_index) unless block_given?
 
     i = 0
     while i < size
-      yield self[i], i
+      !block.nil? ? block.call(self[i], i) : yield(self[i], i)
       i += 1
     end
     self
   end
 
-  def my_select
-    return to_enum(:my_select) unless block_given?
+  def my_select(block = nil)
+    return to_enum(:my_each) unless block_given?
 
-    new_arr = []
-    my_each do |i|
-      new_arr << i if yield(i)
+    i = 0
+    self.times(self.length) do
+      if !block.nil?
+        puts self[i] if block.call(self[i])
+      elsif yield(self[i])
+        puts self[i]
+      end
+      i += 1
     end
-    new_arr
   end
 
-  def my_all?
+  def my_all?(found = nil)
     return to_enum(:my_all?) unless block_given?
 
     my_each do |i|
-      return false if yield(i) == false
+      return false if yield(i) == false or found.call(self[i])
     end
     true
   end
@@ -91,3 +95,9 @@ end
 def multiply_els(arr)
   arr.my_inject { |v, i| v * i }
 end
+
+array = [6, 19, 19, 25, 7, 30, 20, 27, 22, 19, 18, 29, 12, 31, 2, 12, 0, 32, 1, 20]
+block = proc { |num| num.even? }
+rang = Range.new(5, 50)
+
+puts rang.my_select(&block) == rang.select(&block)
