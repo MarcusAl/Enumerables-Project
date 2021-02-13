@@ -8,7 +8,7 @@ module Enumerable
     self
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/CyclomaticComplexity
   def my_each_with_index
     return to_enum unless block_given?
 
@@ -38,6 +38,7 @@ module Enumerable
     count
   end
 
+# rubocop:disable Metrics/CyclomaticComplexity
   def my_all?(param = nil)
     if block_given?
       to_a.my_each { |item| return false if yield(item) == false }
@@ -54,6 +55,7 @@ module Enumerable
     true
   end
 
+# rubocop:disable Metrics/CyclomaticComplexity
   def my_any?(input = nil)
     if block_given?
       to_a.my_each { |ele| return true if yield(ele) }
@@ -85,7 +87,7 @@ module Enumerable
     end
     arr
   end
-
+# rubocop:disable Metrics/CyclomaticComplexity
   def my_inject(start = nil, sym = nil)
     if (!start.nil? && sym.nil?) && (start.is_a?(Symbol) || start.is_a?(String))
       sym = start
