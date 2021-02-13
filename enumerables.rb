@@ -38,8 +38,6 @@ module Enumerable
     count
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disable Metrics/CyclomaticComplexity
 
@@ -59,6 +57,8 @@ module Enumerable
     true
   end
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def my_any?(input = nil)
     if block_given?
       to_a.my_each { |ele| return true if yield(ele) }
