@@ -40,7 +40,7 @@ module Enumerable
   def my_all?(*args)
     check = true
     if !args[0].nil?
-      my_each { |element| check = false unless args[0] === element }
+      my_each { |element| check = false unless args[0] == element }
     elsif !block_given?
       my_each { |element| check = false unless element }
     else
