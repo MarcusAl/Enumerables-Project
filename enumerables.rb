@@ -24,8 +24,8 @@ module Enumerable
     my_each { |item| results.push(item) if yield item }
     results
   end
-  
- def my_count(num = nil)
+
+  def my_count(num = nil)
     count = 0
     if num
       my_each { |element| count += 1 if element == num }
