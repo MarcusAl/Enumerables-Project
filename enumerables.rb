@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
+# my each
 module Enumerable
   def my_each
     return to_enum unless block_given?
+
     to_a.length.times do |index|
       yield to_a[index]
     end
@@ -9,6 +13,7 @@ module Enumerable
 
   def my_each_with_index
     return to_enum unless block_given?
+
     to_a.length.times do |index|
       yield(to_a[index], index)
     end
@@ -17,6 +22,7 @@ module Enumerable
 
   def my_select
     return to_enum unless block_given?
+
     results = []
     my_each { |item| results.push(item) if yield item }
     results
@@ -34,6 +40,7 @@ module Enumerable
     count
   end
 
+  # rubocop:disable Metrics/AbcSize
   def my_all?(param = nil)
     if block_given?
       to_a.my_each { |item| return false if yield(item) == false }
@@ -42,7 +49,7 @@ module Enumerable
       to_a.my_each { |item| return false if item.nil? || item == false }
     elsif !param.nil? && (param.is_a? Class)
       to_a.my_each { |item| return false unless [item.class, item.class.superclass].include?(param) }
-    elsif !param.nil? && param.class == Regexp
+    elsif !param.nil? && param.instance_of?(Regexp)
       to_a.my_each { |item| return false unless param.match(item) }
     else
       to_a.my_each { |item| return false if item != param }
@@ -50,6 +57,9 @@ module Enumerable
     true
   end
 
+  # rubocop:enable Metrics/AbcSize
+
+  # rubocop:disable Metrics/AbcSize
   def my_any?(input = nil)
     if block_given?
       to_a.my_each { |ele| return true if yield(ele) }
@@ -66,12 +76,15 @@ module Enumerable
     false
   end
 
+  # rubocop:enable Metrics/AbcSize
+
   def my_none?(input = nil, &block)
     !my_any?(input, &block)
   end
 
   def my_map(proc = nil)
-    return to_enum unless block_given? or !proc.nil?
+    return to_enum unless block_given? || !proc.nil?
+
     arr = []
     if proc.nil?
       to_a.my_each { |ele| arr << yield(ele) }
@@ -81,6 +94,7 @@ module Enumerable
     arr
   end
 
+  # rubocop:disable Metrics/AbcSize
   def my_inject(start = nil, sym = nil)
     if (!start.nil? && sym.nil?) && (start.is_a?(Symbol) || start.is_a?(String))
       sym = start
@@ -93,6 +107,8 @@ module Enumerable
     end
     start
   end
+
+  # rubocop:enable Metrics/AbcSize
 end
 
 def multiply_els(input)
