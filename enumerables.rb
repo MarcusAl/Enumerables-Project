@@ -41,6 +41,10 @@ module Enumerable
   end
 
   # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity
+
   def my_all?(param = nil)
     if block_given?
       to_a.my_each { |item| return false if yield(item) == false }
@@ -57,9 +61,6 @@ module Enumerable
     true
   end
 
-  # rubocop:enable Metrics/AbcSize
-
-  # rubocop:disable Metrics/AbcSize
   def my_any?(input = nil)
     if block_given?
       to_a.my_each { |ele| return true if yield(ele) }
@@ -75,8 +76,6 @@ module Enumerable
     end
     false
   end
-
-  # rubocop:enable Metrics/AbcSize
 
   def my_none?(input = nil, &block)
     !my_any?(input, &block)
@@ -94,7 +93,6 @@ module Enumerable
     arr
   end
 
-  # rubocop:disable Metrics/AbcSize
   def my_inject(start = nil, sym = nil)
     if (!start.nil? && sym.nil?) && (start.is_a?(Symbol) || start.is_a?(String))
       sym = start
@@ -109,6 +107,9 @@ module Enumerable
   end
 
   # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
 
 def multiply_els(input)
