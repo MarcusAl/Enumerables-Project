@@ -1,8 +1,6 @@
-# rubocop:disable Style/CaseEquality
 module Enumerable
   def my_each
     return to_enum unless block_given?
-
     to_a.length.times do |index|
       yield to_a[index]
     end
@@ -11,7 +9,6 @@ module Enumerable
 
   def my_each_with_index
     return to_enum unless block_given?
-
     to_a.length.times do |index|
       yield(to_a[index], index)
     end
@@ -20,7 +17,6 @@ module Enumerable
 
   def my_select
     return to_enum unless block_given?
-
     results = []
     my_each { |item| results.push(item) if yield item }
     results
@@ -76,7 +72,6 @@ module Enumerable
 
   def my_map(proc = nil)
     return to_enum unless block_given? or !proc.nil?
-
     arr = []
     if proc.nil?
       to_a.my_each { |ele| arr << yield(ele) }
