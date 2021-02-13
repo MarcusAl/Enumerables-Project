@@ -30,23 +30,27 @@ module Enumerable
     if num
       my_each { |element| count += 1 if element == num }
     elsif !block_given?
-      count = length
+      count = to_a.length
     elsif !num
       my_each { |element| count += 1 if yield element }
     end
     count
   end
 
-  def my_all?(*args)
-    check = true
-    if !args[0].nil?
-      my_each { |element| check = false unless args[0] == element }
-    elsif !block_given?
-      my_each { |element| check = false unless element }
+  def my_all?(param = nil)
+    if block_given?
+      to_a.my_each { |item| return false if yield(item) == false }
+      return true
+    elsif param.nil?
+      to_a.my_each { |item| return false if item.nil? || item == false }
+    elsif !param.nil? && (param.is_a? Class)
+      to_a.my_each { |item| return false unless [item.class, item.class.superclass].include?(param) }
+    elsif !param.nil? && param.class == Regexp
+      to_a.my_each { |item| return false unless param.match(item) }
     else
-      my_each { |element| check = false unless yield(element) }
+      to_a.my_each { |item| return false if item != param }
     end
-    check
+    true
   end
 
   def my_any?(input = nil)
