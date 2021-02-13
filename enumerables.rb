@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-# my each
+# Enumerable
 module Enumerable
   def my_each
     return to_enum unless block_given?
