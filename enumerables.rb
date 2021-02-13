@@ -8,6 +8,7 @@ module Enumerable
     self
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def my_each_with_index
     return to_enum unless block_given?
 
