@@ -24,21 +24,29 @@ module Enumerable
     my_each { |item| results.push(item) if yield item }
     results
   end
-
-  def my_all?(input = nil)
-    if block_given?
-      to_a.my_each { |fdm| return false if yield(fdm) == false }
-      return true
-    elsif input.nil?
-      to_a.my_each { |fdm| return false if fdm.nil? || fdm == false }
-    elsif !input.nil? && (input.is_a? Class)
-      to_a.my_each { |fdm| return false unless [fdm.class, fdm.class.superclass].include?(input) }
-    elsif !input.nil? && input.instance_of?(Regexp)
-      to_a.my_each { |fdm| return false unless fdm.match(fdm) }
-    else
-      to_a.my_each { |fdm| return false if fdm != input }
+  
+ def my_count(num = nil)
+    count = 0
+    if num
+      my_each { |element| count += 1 if element == num }
+    elsif !block_given?
+      count = length
+    elsif !num
+      my_each { |element| count += 1 if yield element }
     end
-    true
+    count
+  end
+
+  def my_all?(*args)
+    check = true
+    if !args[0].nil?
+      my_each { |element| check = false unless args[0] === element }
+    elsif !block_given?
+      my_each { |element| check = false unless element }
+    else
+      my_each { |element| check = false unless yield(element) }
+    end
+    check
   end
 
   def my_any?(input = nil)
