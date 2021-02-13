@@ -1,18 +1,24 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Enumerables Project
+# Enumerables
+In this project, we have implemented our version of Ruby’s enumerable methods.
 
->###
+## Enumerable Methods List:
 
-<img align="right" alt="GIF" height="160px" src="####" />
+- my_each
+- my_each_with_index
+- my_select
+- my_all?
+- my_any?
+- my_none?
+- my_count
+- my_map
+- my_inject
+- multiply_els
 
+<img align="right" alt="" height="300px" src="./screenshot.png" />
 
-## How it works
-###
-
-#### 
-
-## Built With
+## Built With Ruby
 
 ![Ruby](http://img.shields.io/badge/-Ruby-3776AB?style=flat-square&logo=ruby&logoColor=red)
 
