@@ -30,7 +30,7 @@ In this project, we have implemented our version of Ruby’s enumerable methods.
 
 __Clone the repo to your local machine using the terminal__:
 ```
-$ git clone https://github.com/CacheMeGifYouCan/Enumerables-Project
+$ git clone https://github.com/marcusal/Enumerables-Project
 ```
 
 1. Navigate into the project directory `cd enumerables`
@@ -44,7 +44,7 @@ $ git clone https://github.com/CacheMeGifYouCan/Enumerables-Project
 
 👤 **Marcus**
 
-- GitHub: [@CacheMeGifYouCan](https://github.com/CacheMeGifYouCan)
+- GitHub: [@CacheMeGifYouCan](https://github.com/marcusal)
 - LinkedIn: [Mark Allen](https://www.linkedin.com/in/marcusa999/)
 
 ### Author 2
@@ -60,7 +60,7 @@ $ git clone https://github.com/CacheMeGifYouCan/Enumerables-Project
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/CacheMeGifYouCan/Enumerables-Project/issues)
+Feel free to check the [issues page](https://github.com/marcusal/Enumerables-Project/issues)
 
 ## 📝 License
 
